@@ -4,13 +4,13 @@
 
 **Pipex** is a UNIX-style program that mimics shell piping behavior.  
 It takes a file, passes its content through a series of shell commands, and outputs the result to another file.  
-This project is part of the 42 school curriculum and helps you deeply understand process handling, piping, and file redirection in UNIX.
+This project is part of the 42 school curriculum and helps deeply understand process handling, piping, and file redirection in UNIX.
 
 ---
 
 ## 🚀 Mandatory Usage
 
-Your program must behave **exactly like** this shell command:
+The program must behave **exactly like** this shell command:
 
 ```bash
 < file1 cmd1 | cmd2 > file2
@@ -24,7 +24,10 @@ Your program must behave **exactly like** this shell command:
 #### 🔧 Example:
 ```bash
 ./pipex infile "ls -l" "wc -l" outfile
-# Equivalent to: < infile ls -l | wc -l > outfile
+```
+# Equivalent to:
+```bash
+< infile ls -l | wc -l > outfile
 ```
 
 ---
@@ -69,10 +72,14 @@ make re          # rebuilds everything
 │   ├── pipex.c
 │   ├── utils.c
 │   └── ...
+├── src_bonus/
+│   ├── pipex_bonus.c
+│   ├── utils_bonus.c
+│   └── ...
 ├── include/
 │   └── pipex.h
-├── libft/
-│   └── ... (copied libft source)
+├── lib/
+│   └── ... (all libraries that I made earlier like (libft/ft_print-get_next_line)
 ├── Makefile
 └── README.md
 ```
@@ -88,8 +95,7 @@ make re          # rebuilds everything
 
 ---
 
-## ✨ Bonus Part (if implemented)
-
+## ✨ Bonus Part
 You can run multiple commands in a chain or use **here_doc**:
 
 ### ➕ Multiple Commands (Multiple Pipes)
@@ -117,118 +123,148 @@ You can run multiple commands in a chain or use **here_doc**:
 - Efficient and clean resource management (freeing heap memory)
 
 ---
+# Get started with the project!
+## Cloning the repo
+```bash
+repo here
+```
 
-## 🧪 Testing
+## Compiling / I recomend the bounus program
+```bash
+make re
+make bonus
+```
 
-We encourage using test scripts or your own test cases for validation.  
-The project should handle invalid arguments, inaccessible files, and wrong commands gracefully.
+# 🧪 Testing
+Make sure you alread have in inuput file called input.txt for the sake of the foloowing tests:
+## ✅ BASIC MULTI-COMMAND PIPELINE TESTS
 
----
+### 1. Simple pipeline
+Original shell comand:
 
-## 📤 Submission
-
-Submit your full project to the Git repository, including:
-
-- All source files (`*.c`, `*.h`)
-- `Makefile`
-- Libft (if authorized)
-- Sample test files or example maps
-- Bonus files in `_bonus.c/h` form
-
----
-
-## 🧠 Author
-
-Project done as part of the [42 School](https://www.42network.org/) curriculum.
-
----
-
-## 🔐 License
-
-This project is for educational purposes as part of 42 coding school. Do not use in production without permission.
-
-
-
-
-✅ BASIC MULTI-COMMAND PIPELINE TESTS
-1. Simple pipeline
-
+```bash
 < input.txt grep hello | wc -l > output.txt
+```
+This should output similar reslut if we run the program this way
+```bash
 ./pipex_bonus input.txt "grep hello" "wc -l" output.txt
+```
+---
 
+### 2. Quoted strings
+Original shell comand:
 
-2. Quoted strings
+```bash
+< input.txt grep hello | wc -l > output.txt
+```
+This should output similar reslut if we run the program this way
+```bash
+./pipex_bonus input.txt "grep hello" "wc -l" output.txt
+```
 
-< input.txt grep 'hello world' | awk '{print $1}' > output.txt
-./pipex_bonus input.txt "grep 'hello world'" "awk '{print \$1}'" output.txt
+---
 
+## ✅ ADVANCED COMMAND STRUCTURES
 
-
-✅ ADVANCED COMMAND STRUCTURES
-3. Sort and uniq
-
+### 3. Sort and uniq
+Original shell comand:
+```bash
 < input.txt sort | uniq -c | sort -nr > output.txt
+```
+This should output similar reslut if we run the program this way
+```bash
 ./pipex_bonus input.txt "sort" "uniq -c" "sort -nr" output.txt
 
-
-4. Mixed command options
-
+```
+### 4. Mixed command options
+Original shell comand:
+```bash
 < input.txt cut -d' ' -f1 | sort | uniq > output.txt
+```
+This should output similar reslut if we run the program this way
+```bash
 ./pipex_bonus input.txt "cut -d' ' -f1" "sort" "uniq" output.txt
 
-
-
-
-✅ HERE_DOC EDGE CASES
-5. Basic here_doc
-
+```
+---
+## ✅ HERE_DOC EDGE CASES
+### 5. Basic here_doc
+Original shell comand:
+```bash
 cat <<END | grep foo | wc -l >> output.txt
 foo bar
 baz foo
 not me
 END
 
+```
+This should output similar reslut if we run the program this way
+```bash
 ./pipex_bonus here_doc END "grep foo" "wc -l" output.txt
-
-
-6. Quoted LIMITER (shell vs. program behavior should match)
-
-cat <<'END' | grep hello | wc >> output.txt
-hello world
+foo bar
+baz foo
+not me
 END
 
-./pipex_bonus here_doc END "grep hello" "wc" output.txt
+```
 
 
+### 6. Quoted LIMITER (shell vs. program behavior should match)
+Original shell comand:
+```bash
+cat <<END | grep foo | wc -l >> output.txt
+foo bar
+baz foo
+not me
+END
+```
 
-
-
-
-
-✅ ERROR HANDLING TESTS
-8. Nonexistent command
-
+This should output similar reslut if we run the program this way
+```bash
+./pipex_bonus here_doc END "grep foo" "wc -l" output.txt
+foo bar
+baz foo
+not me
+END
+```
+---
+## ✅ ERROR HANDLING TESTS
+### 7. Nonexistent command
+Original shell comand:
+```bash
 < input.txt grep hello | nonexistent_cmd | wc -l > output.txt
+```
+This should output similar reslut if we run the program this way
+```bash
 ./pipex_bonus input.txt "grep hello" "nonexistent_cmd" "wc -l" output.txt
+```
 
-Expect: Command not found error.
-
-
-
-9. Invalid file
-
+### 8. Invalid file
+Original shell comand:
+```bash
 < no_such_file grep hello | wc -l > output.txt
+```
+This should output similar reslut if we run the program this way
+```bash
 ./pipex_bonus no_such_file "grep hello" "wc -l" output.txt
+```
 
-Expect: open infile error.
-
-
-
-
-
-✅ EDGE-CASE QUOTING BEHAVIOR
-10. Quoted quotes
-
+## ✅ EDGE-CASE QUOTING BEHAVIOR
+### 9. Quoted quotes
+Original shell comand:
+```bash
 < input.txt awk '{print "\""$1"\""}' | sed 's/"//g' > output.txt
+```
+This should output similar reslut if we run the program this way
+```bash
 ./pipex_bonus input.txt "awk '{print \"\\\"\"\$1\"\\\"\"}'" "sed 's/\"//g'" output.txt
+```
+
+## 🔐 License
+
+This project is for educational purposes as part of 42 coding school. Do not use in production without permission!
+
+
+
+
 
