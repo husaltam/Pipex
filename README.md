@@ -126,7 +126,8 @@ You can run multiple commands in a chain or use **here_doc**:
 # Get started with the project!
 ## Cloning the repo
 ```bash
-repo here
+git clone https://github.com/husaltam/Pipex.git pipex
+cd pipex
 ```
 
 ## Compiling / I recomend the bounus program
