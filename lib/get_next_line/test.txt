@@ -1,0 +1,11 @@
+total 52
+drwxr-xr-x 2 husaltam 2024_wolfsburg   153 Mai 21 14:56 .
+drwxr-xr-x 6 husaltam 2024_wolfsburg    79 Mai 21 13:02 ..
+-rw-r--r-- 1 husaltam 2024_wolfsburg  2776 Mai 21 13:38 get_next_line.c
+-rw-r--r-- 1 husaltam 2024_wolfsburg  1183 Mai 21 13:52 get_next_line.h
+-rw-r--r-- 1 husaltam 2024_wolfsburg  3904 Mai 21 14:54 get_next_line.o
+-rw-r--r-- 1 husaltam 2024_wolfsburg  4108 Mai 21 14:54 libgnl.a
+-rw-r--r-- 1 husaltam 2024_wolfsburg  1099 Mai 21 13:39 main.c
+-rw-r--r-- 1 husaltam 2024_wolfsburg  1616 Mai 21 14:53 Makefile
+-rwxr-xr-x 1 husaltam 2024_wolfsburg 21472 Mai 21 14:56 test_gnl
+-rw-r--r-- 1 husaltam 2024_wolfsburg     0 Mai 21 14:56 test.txt
