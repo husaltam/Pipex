@@ -1,5 +1,5 @@
 # Pipex
-![Screenshot](Documentation/Gemini_Generated_Image_g4l5fjg4l5fjg4l5.jpeg)
+![Screenshot](Documentation/pipex_1.png)
 ## 📚 Description
 
 **Pipex** is a UNIX-style program that mimics shell piping behavior.  
@@ -260,7 +260,7 @@ This should output similar reslut if we run the program this way
 ```bash
 ./pipex_bonus input.txt "awk '{print \"\\\"\"\$1\"\\\"\"}'" "sed 's/\"//g'" output.txt
 ```
-
+![Screenshot](Documentation/pipex_2.png)
 ## 🔐 License
 
 This project is for educational purposes as part of 42 coding school. Do not use in production without permission!
