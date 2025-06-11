@@ -1,5 +1,5 @@
 # Pipex
-
+![Screenshot](Documentation/Gemini_Generated_Image_g4l5fjg4l5fjg4l5.jpeg)
 ## 📚 Description
 
 **Pipex** is a UNIX-style program that mimics shell piping behavior.  
