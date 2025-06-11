@@ -260,12 +260,12 @@ This should output similar reslut if we run the program this way
 ```bash
 ./pipex_bonus input.txt "awk '{print \"\\\"\"\$1\"\\\"\"}'" "sed 's/\"//g'" output.txt
 ```
-![Screenshot](Documentation/pipex_2.png)
+
 ## 🔐 License
 
 This project is for educational purposes as part of 42 coding school. Do not use in production without permission!
-
-
+---
+![Screenshot](Documentation/pipex_2.png)
 
 
 
