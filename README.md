@@ -1,5 +1,5 @@
 # Pipex
-![Screenshot](Documentation/pipex_1.png)
+![Screenshot](Documentation/pipe_1.png)
 ## 📚 Description
 
 **Pipex** is a UNIX-style program that mimics shell piping behavior.  
@@ -265,7 +265,7 @@ This should output similar reslut if we run the program this way
 
 This project is for educational purposes as part of 42 coding school. Do not use in production without permission!
 ---
-![Screenshot](Documentation/pipex_2.png)
+![Screenshot](Documentation/pipe_2.png)
 
 
 
